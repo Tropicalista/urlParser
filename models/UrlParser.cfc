@@ -14,10 +14,8 @@ component{
 	 * Parser
 	 */
 	function parse( required string aUrl ){
-		if( ! isValidUrl( arguments.aUrl ) ){
-			return false;
-		}
 		parser.init( arguments.aUrl );
+
 		parsedUrl.protocol = parser.getProtocol();
 		parsedUrl.authority = parser.getAuthority();
 		parsedUrl.host = parser.getHost();
@@ -34,7 +32,7 @@ component{
 	 * is a valid Url?
 	 * @return boolean
 	 */
-	function isValidUrl( required string aUrl ){
+	function isValid( required string aUrl ){
 
 		try{
 			parser.init( arguments.aUrl );
@@ -62,7 +60,7 @@ component{
 	 * get Protocol or fallback to default "http"
 	 * @return A valid protocol
 	 */
-	function getProtocol( required string aUrl ){
+	function getOrSetProtocol( required string aUrl ){
 
 		if( hasProtocol( arguments.aUrl ) ){
 			return parse( arguments.aUrl ).protocol;

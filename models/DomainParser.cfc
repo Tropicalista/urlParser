@@ -12,18 +12,33 @@ component{
 	}
 	
 	/**
-	 * Parser
+	 * Returns an instance of InternetDomainName after lenient validation
 	 */
 	function from( required string aDomain ){
-		var domain = domain.from( aDomain );
-
-		return domain;
+		return domain.from( aDomain );
 	}
 
 	/**
-	 * index
+	 * Returns the public suffix portion of the domain name, or null if no public suffix is present.
+	 * @return string
+	 */
+	function getPublicSuffix( required string aDomain ){
+		return variables.domain.from( arguments.aDomain ).hasPublicSuffix();
+	}
+	
+	/**
+	 * Check wether has a public suffix
+	 * @return boolean
 	 */
 	function hasPublicSuffix( required string aDomain ){
+		return variables.domain.from( arguments.aDomain ).hasPublicSuffix();
+	}
+	
+	/**
+	 * Indicates whether this domain name represents a public suffix, as defined by the Mozilla Foundation's Public Suffix List 
+	 * @return string
+	 */
+	function isPublicSuffix( required string aDomain ){
 		return variables.domain.from( arguments.aDomain ).hasPublicSuffix();
 	}
 	
