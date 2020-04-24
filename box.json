@@ -1,0 +1,36 @@
+{
+    "name":"urlParser",
+    "version":"0.0.0",
+    "author":"",
+    "location":"Tropicalista/urlParser#v0.0.0",
+    "homepage":"https://github.com/Tropicalista/urlParser",
+    "documentation":"https://github.com/Tropicalista/urlParser",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/Tropicalista/urlParser"
+    },
+    "bugs":"https://github.com/Tropicalista/urlParser/issues",
+    "slug":"urlParser",
+    "shortDescription":"Short Module Description",
+    "description":"Short Module Description",
+    "type":"modules",
+    "dependencies":{},
+    "devDependencies":{
+        "coldbox":"^5.0.0",
+        "testbox":"^3.0.0"
+    },
+    "installPaths":{
+        "testbox":"testbox/",
+        "coldbox":"tests/resources/app/coldbox/"
+    },
+    "scripts":{
+        "postVersion":"package set location='Tropicalista/urlParser#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}
