@@ -14,19 +14,28 @@
     "shortDescription":"Short Module Description",
     "description":"Short Module Description",
     "type":"modules",
-    "dependencies":{},
+    "dependencies":{
+        "cbjavaloader":"^2.0.0-snapshot"
+    },
     "devDependencies":{
         "coldbox":"^5.0.0",
         "testbox":"^3.0.0"
     },
     "installPaths":{
         "testbox":"testbox/",
-        "coldbox":"tests/resources/app/coldbox/"
+        "coldbox":"tests/resources/app/coldbox/",
+        "cbjavaloader":"modules/cbjavaloader/"
     },
     "scripts":{
         "postVersion":"package set location='Tropicalista/urlParser#v`package version`'",
         "onRelease":"publish",
         "postPublish":"!git push && git push --tags"
+    },
+    "testbox":{
+        "reporter":"json",
+        "runner":"http://127.0.0.1:53527/tests/runner.cfm",
+        "verbose":"false",
+        "watchDelay":"1000"
     },
     "ignore":[
         "**/.*",
